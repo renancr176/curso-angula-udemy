@@ -1,0 +1,23 @@
+<div class="text-right" id="tentativasContainer">
+  <!-- IF
+  <i *ngIf="numeroTentativas < 1" class="far fa-heart fa-3x text-danger"></i>
+  <i *ngIf="numeroTentativas < 2" class="far fa-heart fa-3x text-danger"></i>
+  <i *ngIf="numeroTentativas < 3" class="far fa-heart fa-3x text-danger"></i>
+
+  <i *ngIf="numeroTentativas >= 1" class="fas fa-heart fa-3x text-danger"></i>
+  <i *ngIf="numeroTentativas >= 2" class="fas fa-heart fa-3x text-danger"></i>
+  <i *ngIf="numeroTentativas >= 3" class="fas fa-heart fa-3x text-danger"></i>
+  -->
+
+  <!-- String Interpolation
+  <i class="{{ estadoCoracao(1) }}"></i>
+  <i class="{{ estadoCoracao(2) }}"></i>
+  <i class="{{ estadoCoracao(3) }}"></i>
+  -->
+  
+  <!-- Propety Binding -->
+  <i [class]="estadoCoracao(1)"></i>
+  <i [class]="estadoCoracao(2)"></i>
+  <i [class]="estadoCoracao(3)"></i>
+
+</div>

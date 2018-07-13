@@ -1,0 +1,31 @@
+<div class="jumbotron form-horizontal">
+  <div class="row">
+    <div class="col-md-8">
+      <app-app1-progresso [porcentagem]="porcentagemAcertos"></app-app1-progresso>
+    </div>
+    <div class="col-md-4">
+      <app-app1-tentativas [numeroTentativas]="numeroTentativas"></app-app1-tentativas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-primary">Traduza estra fraze:</h3>
+      <h3 class="text-warning">{{frase.fraseEng}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <textarea class="form-control" (input)="Resposta($event)" *ngIf="JogoAtivo()"></textarea>
+        <h3 *ngIf="!JogoAtivo() && numeroTentativas == 0" class="text-danger text-center">Você perdeu</h3>
+        <h3 *ngIf="!JogoAtivo() && numeroTentativas > 0" class="text-success text-center">Você venceu</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 text-right">
+      <button class="btn btn-primary" (click)="Verificar()" *ngIf="JogoAtivo()">Verificar</button>
+      <button class="btn btn-info" (click)="Reiniciar()" *ngIf="!JogoAtivo()">Reiniciar</button>
+    </div>
+  </div>
+</div>
