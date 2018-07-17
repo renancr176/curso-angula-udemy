@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
-        <textarea class="form-control" (input)="Resposta($event)" *ngIf="JogoAtivo()"></textarea>
+        <textarea class="form-control" (input)="Resposta($event)" *ngIf="JogoAtivo()" [value]="resposta"></textarea>
         <h3 *ngIf="!JogoAtivo() && numeroTentativas == 0" class="text-danger text-center">Você perdeu</h3>
         <h3 *ngIf="!JogoAtivo() && numeroTentativas > 0" class="text-success text-center">Você venceu</h3>
       </div>

@@ -13,12 +13,14 @@ export class PainelComponent implements OnInit {
   public numeroTentativas: number = 3;
   public frases: Array<Frase> = Frases;
   public frase: Frase;
+  public frasesIndexes: Array<any>;
   public index: number;
   public resposta: string = '';
   public quantidadeFrases: number;
   public quantidadeAcertos: number = 0;
 
   constructor() { 
+    this.frasesIndexes = Object.keys(this.frases);
     this.quantidadeFrases = this.frases.length;
     this.OutraFrase();
   }
@@ -27,8 +29,9 @@ export class PainelComponent implements OnInit {
   }
   
   OutraFrase(): void{
-    if(this.frases.length > 0){
+    if(this.frasesIndexes.length > 0){
       this.index = this.IndiceRandomicoFrases();
+      this.frasesIndexes.splice(this.frasesIndexes.indexOf(this.index), 1);
       this.frase = this.frases[this.index];
     }else{
       this.index = -1;
@@ -36,8 +39,7 @@ export class PainelComponent implements OnInit {
   }
 
   IndiceRandomicoFrases(): number {
-    let keys: Array<any> = Object.keys(this.frases);
-    return keys[Math.floor(Math.random() * this.frases.length)]
+    return this.frasesIndexes[Math.floor(Math.random() * this.frasesIndexes.length)]
   }
 
   Resposta(resposta: Event): void{
@@ -45,16 +47,15 @@ export class PainelComponent implements OnInit {
   }
 
   JogoAtivo(): boolean{
-    return (this.frases.length > 0 && this.numeroTentativas > 0);
+    return (this.index > -1 && this.numeroTentativas > 0);
   }
 
   Verificar(): void{
-    if(this.numeroTentativas > 0 && this.resposta.length > 0){
+    if(this.index > -1 && this.resposta.length > 0){
       if(this.frase.frasePtBr.toLowerCase() == this.resposta.toLowerCase()){
         this.quantidadeAcertos++;
         this.porcentagemAcertos = (this.quantidadeAcertos / this.quantidadeFrases) * 100;
 
-        this.frases.splice(this.index, 1);
         this.OutraFrase();
         this.resposta = '';
         alert('Acertou');
@@ -69,11 +70,9 @@ export class PainelComponent implements OnInit {
 
   Reiniciar(): void{
     this.numeroTentativas = 3;
+    this.quantidadeAcertos = 0;
     this.porcentagemAcertos = 0;
-    this.frases = Frases;
-    this.quantidadeFrases = this.frases.length;
+    this.frasesIndexes = Object.keys(this.frases);
     this.OutraFrase();
-    
-    console.log(this.frases);
   }
 }

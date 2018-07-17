@@ -17,6 +17,7 @@ import { TopoComponent } from './app1/topo/topo.component';
 import { PainelComponent } from './app1/painel/painel.component';
 import { TentativasComponent } from './app1/tentativas/tentativas.component';
 import { ProgressoComponent } from './app1/progresso/progresso.component';
+import { App2Component } from './app2/app2.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProgressoComponent } from './app1/progresso/progresso.component';
     TopoComponent,
     PainelComponent,
     TentativasComponent,
-    ProgressoComponent
+    ProgressoComponent,
+    App2Component
   ],
   imports: [
     BrowserModule,
