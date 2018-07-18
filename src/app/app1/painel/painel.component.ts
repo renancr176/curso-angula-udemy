@@ -57,12 +57,12 @@ export class PainelComponent implements OnInit {
         this.porcentagemAcertos = (this.quantidadeAcertos / this.quantidadeFrases) * 100;
 
         this.OutraFrase();
-        this.resposta = '';
         alert('Acertou');
       }else{
         this.numeroTentativas--;
         alert('Errou!!!');
       }
+      this.resposta = '';
     }else{
       alert('Informe a resposta.');
     }

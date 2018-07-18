@@ -15,9 +15,11 @@
   <i class="{{ estadoCoracao(3) }}"></i>
   -->
   
-  <!-- Propety Binding -->
+  <!-- Propety Binding 
   <i [class]="estadoCoracao(1)"></i>
   <i [class]="estadoCoracao(2)"></i>
   <i [class]="estadoCoracao(3)"></i>
+  -->
 
+  <i *ngFor="let coracao of coracoes" [class]="coracao.ExibeCoracao()"></i>
 </div>
