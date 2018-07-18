@@ -7,7 +7,7 @@ import { Coracao } from '../models/coracoe.model'
   templateUrl: './tentativas.component.html',
   styleUrls: ['./tentativas.component.css']
 })
-export class TentativasComponent implements OnInit {
+export class TentativasComponent implements OnInit, OnChanges {
   @Input() public numeroTentativas: number = 3;
   public quantidadeCoracoes: number;
   public coracoes: Array<Coracao> = new Array<Coracao>();
